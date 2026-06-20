@@ -1,25 +1,32 @@
 import { Reveal } from "../ui/Motion";
-import { regulatorDetails } from "../../data/siteContent";
 import { createWhatsAppUrl } from "../../utils/contact";
 
-const consultation =
-  "Hola ElectroSur, quiero consultar por un regulador para una unidad de nuestra flota.";
-
-export function RegulatorDetails({ onClose }) {
-  const { eyebrow, title, description, brands, types, symptoms, identification } = regulatorDetails;
+export function ProductDetails({ details, onClose }) {
+  const {
+    ariaLabel,
+    image,
+    imageAlt,
+    imageLabel,
+    eyebrow,
+    title,
+    description,
+    brands,
+    types,
+    symptoms,
+    identification,
+    consultation,
+    consultationLabel,
+  } = details;
 
   return (
-    <section className="regulator-details" aria-label="Información sobre reguladores">
+    <section className="regulator-details" aria-label={ariaLabel}>
       <button className="regulator-close" type="button" onClick={onClose} aria-label="Cerrar información">
         Cerrar <span>×</span>
       </button>
 
       <div className="regulator-media">
-        <img
-          src="/assets/ignition-products-hero.png"
-          alt="Regulador de alternador junto a componentes eléctricos automotrices"
-        />
-        <span>Regulación precisa</span>
+        <img src={image} alt={imageAlt} />
+        <span>{imageLabel}</span>
       </div>
 
       <div className="regulator-content">
@@ -59,7 +66,7 @@ export function RegulatorDetails({ onClose }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Consultar un regulador <span>→</span>
+            {consultationLabel} <span>→</span>
           </a>
         </Reveal>
       </div>

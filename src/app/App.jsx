@@ -7,6 +7,7 @@ import { SolutionsSection } from "../sections/SolutionsSection";
 import { CatalogSection } from "../sections/CatalogSection";
 import { CompanySection } from "../sections/CompanySection";
 import { ContactSection } from "../sections/ContactSection";
+import { LocationSection } from "../sections/LocationSection";
 import { IgnitionPage } from "../pages/IgnitionPage";
 
 export function App() {
@@ -36,6 +37,7 @@ export function App() {
           <SolutionsSection />
           <CatalogSection />
           <CompanySection />
+          <LocationSection />
           <ContactSection />
         </main>
       )}

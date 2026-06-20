@@ -10,7 +10,7 @@ export function Footer() {
         </div>
         <div>
           <small>UBICACIÓN</small>
-          <p>Berazategui<br />Buenos Aires, Argentina</p>
+          <p>Av. 7 N.º 1502<br />Berazategui, Buenos Aires</p>
         </div>
         <div>
           <small>CONTACTO</small>

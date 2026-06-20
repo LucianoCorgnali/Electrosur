@@ -1,7 +1,7 @@
 import { Reveal } from "../components/ui/Motion";
-import { ignitionBrands } from "../data/siteContent";
 import { createWhatsAppUrl } from "../utils/contact";
 import { IgnitionProductsGrid } from "../components/ignition/IgnitionProductsGrid";
+import { BrandsDropdown } from "../components/ignition/BrandsDropdown";
 
 const quoteMessage =
   "Hola ElectroSur, quiero consultar por productos de encendido y electricidad para nuestra flota.";
@@ -74,14 +74,7 @@ export function IgnitionPage() {
             correcto entre disponibilidad, rendimiento y presupuesto.
           </Reveal>
         </div>
-        <div className="brand-wall">
-          {ignitionBrands.map((brand, index) => (
-            <Reveal className={`brand-name brand-style-${(index % 4) + 1}`} key={brand}>
-              {brand}
-            </Reveal>
-          ))}
-        </div>
-        <Reveal as="p" className="brands-note">La disponibilidad y aplicación se confirman al momento de cotizar.</Reveal>
+        <BrandsDropdown />
       </section>
 
       <section className="injector-section" id="inyectores">

@@ -1,10 +1,11 @@
 import { Reveal } from "../components/ui/Motion";
 import { createWhatsAppUrl } from "../utils/contact";
+import { HeroCarousel } from "../components/home/HeroCarousel";
 
 export function HeroSection() {
   return (
     <section className="hero" id="inicio">
-      <div className="hero-media" aria-hidden="true" />
+      <HeroCarousel />
       <div className="hero-grid" aria-hidden="true" />
 
       <div className="hero-content">
