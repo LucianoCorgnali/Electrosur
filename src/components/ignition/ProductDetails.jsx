@@ -11,6 +11,7 @@ export function ProductDetails({ details, onClose }) {
     title,
     description,
     brands,
+    brandsLabel = "MARCAS DESTACADAS",
     types,
     symptoms,
     identification,
@@ -57,7 +58,7 @@ export function ProductDetails({ details, onClose }) {
 
         <Reveal className="regulator-footer">
           <div>
-            <small>MARCAS DESTACADAS</small>
+            <small>{brandsLabel}</small>
             <p>{brands.join(" · ")}</p>
           </div>
           <a

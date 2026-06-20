@@ -41,22 +41,43 @@ export function CatalogSection() {
             <span className="corner-arrow">↗</span>
           </Reveal>
         ))}
-      </div>
 
-      <Reveal className="repair-band">
-        <div className="repair-tag">TALLER ESPECIALIZADO</div>
-        <div>
-          <p>También reparamos</p>
-          <h3>ALTERNADORES, ARRANQUES<br />Y BOBINADOS.</h3>
-        </div>
-        <a
-          href={createWhatsAppUrl("Hola ElectroSur, quiero consultar por una reparación.")}
+        <Reveal
+          as="a"
+          className="repair-band"
+          href={createWhatsAppUrl("Hola ElectroSur, quiero consultar por una reparación con garantía de 30 días.")}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Consultar por reparaciones con garantía de 30 días"
         >
-          Consultar reparación <span>→</span>
-        </a>
-      </Reveal>
+          <div className="repair-intro">
+            <span className="category-index">06</span>
+            <div>
+              <p>Servicio técnico</p>
+              <h3>También<br />reparamos</h3>
+            </div>
+          </div>
+
+          <div className="repair-services" aria-label="Reparaciones disponibles">
+            <span>Alternadores</span>
+            <span>Arranques</span>
+            <span>Bobinados</span>
+            <span>Motores de limpiaparabrisas</span>
+            <span>Motores de electroventilador</span>
+          </div>
+
+          <div className="repair-action">
+            <span className="repair-guarantee">
+              <strong>30 días</strong>
+              de garantía
+            </span>
+            <span className="repair-consultation">
+              Consultar reparación
+            </span>
+            <b aria-hidden="true">↗</b>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }
