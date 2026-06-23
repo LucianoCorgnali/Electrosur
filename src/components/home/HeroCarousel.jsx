@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
+    src: "/assets/hero/electrosur-store-wide.png",
+    position: "center",
+    fit: "cover",
+  },
+  {
     src: "/assets/fleet-hero.png",
     position: "center",
     fit: "cover",
@@ -25,8 +30,7 @@ const slides = [
 
 const AUTOPLAY_DELAY = 4000;
 
-export function HeroCarousel() {
-  const [activeSlide, setActiveSlide] = useState(0);
+export function HeroCarousel({ activeSlide, setActiveSlide }) {
   const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
@@ -38,7 +42,7 @@ export function HeroCarousel() {
     }, AUTOPLAY_DELAY);
 
     return () => window.clearInterval(timer);
-  }, [isPaused]);
+  }, [isPaused, setActiveSlide]);
 
   const showPrevious = () => {
     setActiveSlide((current) => (current - 1 + slides.length) % slides.length);

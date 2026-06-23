@@ -24,7 +24,12 @@ export function SolutionsSection() {
 
       <section className="benefits">
         {benefits.map(({ icon, title, text }, index) => (
-          <Reveal as="article" className="benefit-card" key={title}>
+          <Reveal
+            as="article"
+            className="benefit-card"
+            key={title}
+            style={{ "--benefit-index": index }}
+          >
             <span className="card-number">0{index + 1}</span>
             <div className="benefit-icon">{icon}</div>
             <h3>{title}</h3>

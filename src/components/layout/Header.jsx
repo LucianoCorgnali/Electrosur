@@ -8,9 +8,26 @@ const ignitionNavigation = [
   { label: "Contacto", id: "consulta" },
 ];
 
-export function Header({ innerPage = false }) {
+const serviceNavigation = [
+  { label: "Productos", id: "productos" },
+  { label: "Marcas", id: "marcas" },
+  { label: "Contacto", id: "consulta" },
+];
+
+const coolingNavigation = [
+  { label: "Productos", id: "productos" },
+  { label: "Marcas", id: "marcas" },
+  { label: "Contacto", id: "consulta" },
+];
+
+export function Header({ innerPage = false, pageType }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const links = innerPage ? ignitionNavigation : navigation;
+  const innerNavigation = pageType === "service"
+    ? serviceNavigation
+    : pageType === "cooling"
+      ? coolingNavigation
+      : ignitionNavigation;
+  const links = innerPage ? innerNavigation : navigation;
 
   return (
     <>

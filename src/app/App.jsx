@@ -9,10 +9,16 @@ import { CompanySection } from "../sections/CompanySection";
 import { ContactSection } from "../sections/ContactSection";
 import { LocationSection } from "../sections/LocationSection";
 import { IgnitionPage } from "../pages/IgnitionPage";
+import { ServicePage } from "../pages/ServicePage";
+import { CoolingPage } from "../pages/CoolingPage";
 
 export function App() {
   const glowRef = useRef(null);
-  const isIgnitionPage = window.location.pathname.replace(/\/+$/, "") === "/encendido-electricidad";
+  const currentPath = window.location.pathname.replace(/\/+$/, "");
+  const isIgnitionPage = currentPath === "/encendido-electricidad";
+  const isServicePage = currentPath === "/service-mantenimiento";
+  const isCoolingPage = currentPath === "/refrigeracion";
+  const isInnerPage = isIgnitionPage || isServicePage || isCoolingPage;
 
   const moveGlow = (event) => {
     if (!glowRef.current) return;
@@ -28,9 +34,16 @@ export function App() {
   return (
     <div onPointerMove={moveGlow} onPointerLeave={hideGlow}>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
-      <Header innerPage={isIgnitionPage} />
+      <Header
+        innerPage={isInnerPage}
+        pageType={isServicePage ? "service" : isCoolingPage ? "cooling" : undefined}
+      />
       {isIgnitionPage ? (
         <IgnitionPage />
+      ) : isServicePage ? (
+        <ServicePage />
+      ) : isCoolingPage ? (
+        <CoolingPage />
       ) : (
         <main>
           <HeroSection />

@@ -2,8 +2,14 @@ import { useState } from "react";
 import { ignitionBrands } from "../../data/siteContent";
 import { Reveal } from "../ui/Motion";
 
-export function BrandsDropdown() {
+export function BrandsDropdown({
+  brands = ignitionBrands,
+  eyebrow = "NUESTRA RED DE MARCAS",
+  summary,
+  contentId = "brands-dropdown-list",
+}) {
   const [isOpen, setIsOpen] = useState(false);
+  const resolvedSummary = summary ?? `${brands.length} marcas para resolver cada aplicación`;
 
   return (
     <div className={`brands-dropdown ${isOpen ? "is-open" : ""}`}>
@@ -12,23 +18,23 @@ export function BrandsDropdown() {
         type="button"
         onClick={() => setIsOpen((current) => !current)}
         aria-expanded={isOpen}
-        aria-controls="brands-dropdown-list"
+        aria-controls={contentId}
       >
         <span>
-          <small>NUESTRA RED DE MARCAS</small>
-          <strong>{ignitionBrands.length} marcas para resolver cada aplicación</strong>
+          <small>{eyebrow}</small>
+          <strong>{resolvedSummary}</strong>
         </span>
         <i>{isOpen ? "−" : "+"}</i>
       </button>
 
       <div
         className="brands-dropdown-content"
-        id="brands-dropdown-list"
+        id={contentId}
         aria-hidden={!isOpen}
       >
         <div className="brands-dropdown-inner">
           <div className="brand-wall">
-            {ignitionBrands.map((brand, index) => (
+            {brands.map((brand, index) => (
               <Reveal className={`brand-name brand-style-${(index % 4) + 1}`} key={brand}>
                 {brand}
               </Reveal>

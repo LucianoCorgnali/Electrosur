@@ -33,8 +33,8 @@ export function CatalogSection() {
           </span>
         </Reveal>
 
-        {categories.map(({ title, text }, index) => (
-          <Reveal as="article" className="category-card" key={title}>
+        {categories.map(({ title, text, href }, index) => (
+          <Reveal as={href ? "a" : "article"} href={href} className="category-card" key={title}>
             <span className="category-index">0{index + 2}</span>
             <h3>{title}</h3>
             <p>{text}</p>
@@ -72,7 +72,7 @@ export function CatalogSection() {
               de garantía
             </span>
             <span className="repair-consultation">
-              Consultar reparación
+              Tocá para consultar por WhatsApp
             </span>
             <b aria-hidden="true">↗</b>
           </div>
